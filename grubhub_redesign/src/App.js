@@ -1,19 +1,30 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import React from "react";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "./Components/Navbar";
+import Home from "./Pages/Home";
+import Contact from "./Pages/Contact";
+import Footer from "./Components/Footer";
+import FeaturedRest from "./Pages/FeaturedRest";
+// import SignUp from "./pages/SignUp";
+import "./styles/App.css";
+import "./styles/contact.css";
+import "./styles/footer.css";
+import "./styles/restaurants.css";
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
-  
   return (
     <Router>
-      <div className="App">
-        <Navbar />
-        <header className="App-header">
-          <img src="./mainlogo.png" className="App-logo" alt="logo" />
-        </header>
-      </div>
+      <Navbar />
+      <>
+        {}
+        <Routes>
+          <Route exact path="/" element={<Home />}></Route>
+          <Route exact path="/restaurants" element={<FeaturedRest />}></Route>
+          {/* <Route exact path="/signup" element={<SignUp />}></Route> */}
+          <Route exact path="/contact" element={<Contact />}></Route>
+        </Routes>
+      </>
+      <Footer />
     </Router>
   );
 }
